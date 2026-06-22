@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>极速赛车 · 轻量介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 2.8rem;
+    }
+
+    .top-nav .brand {
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      color: #0f172a;
+    }
+
+    .top-nav .brand span {
+      color: #2563eb;
+    }
+
+    .top-nav .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+    }
+
+    .top-nav .nav-links a {
+      text-decoration: none;
+      color: #475569;
+      transition: color 0.2s;
+    }
+
+    .top-nav .nav-links a:hover {
+      color: #1e293b;
+    }
+
+    /* 主区域 */
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #0a0f1a;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #334155;
+      max-width: 600px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1.4rem 0;
+      border-left: 3px solid #2563eb;
+      padding-left: 0.85rem;
+      color: #0f172a;
+    }
+
+    .desc-text {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    .desc-text a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .desc-text a:hover {
+      color: #1e40af;
+    }
+
+    /* 场景卡片 — 三模块 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+      transform: translateY(-2px);
+    }
+
+    .scene-card .emoji-bg {
+      display: inline-block;
+      font-size: 1.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .scene-card h3 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 2rem;
+    }
+
+    .faq-mini h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #475569;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      font-weight: 600;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #334155;
+      margin: 0;
+    }
+
+    .footer-note {
+      margin: 3rem 0 1.5rem;
+      text-align: left;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式 */
+    @media (min-width: 600px) {
+      .scene-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+      .top-nav .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .faq-mini {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="brand"><span>⚡</span> 极速·轻叙</div>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>极速赛车 · 轻量叙事</h1>
+    <p>围绕速度、节奏与体验展开，不刻意追逐声量，只在意每一次运转的流畅与真实。</p>
+  </section>
+
+  <!-- 核心介绍 (自然嵌入链接) -->
+  <p class="desc-text">
+    谈起赛车，许多人最先想到的是轰鸣与冲刺。而<strong>极速赛车</strong>所呈现的，更多是一种紧凑而有序的律动——
+    每一次刷新、每一轮变化，都像赛道上的弯道与直路，各有章法。如果你也想感受这种节奏，
+    可以了解一下 <a href="https://h5-jssc.com">极速赛车</a> 所构建的互动方式，
+    它并不复杂，但足够清晰。
+  </p>
+  <p class="desc-text">
+    没有夸张的宣言，也没有故弄玄虚的术语。我们更愿意把它看作一个轻巧的窗口——
+    通过它，你能看到数字与瞬时反馈如何交织成一种流畅的观看或参与体验。
+  </p>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title">常见场景</h2>
+  <div class="scene-grid">
+    <div class="scene-card">
+      <div class="emoji-bg">📱</div>
+      <h3>碎片时间</h3>
+      <p>在通勤、等候或放松的片刻，打开页面即可进入快速节奏。界面轻量不拖沓，适合短暂而专注的参与。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-bg">🔄</div>
+      <h3>连续观察</h3>
+      <p>有人喜欢追踪每一轮的变化曲线，记录趋势与频率。极速赛车的数据更新稳定，便于做简单分析或兴趣观察。</p>
+    </div>
+    <div class="scene-card">
+      <div class="emoji-bg">🧘</div>
+      <h3>节奏感知</h3>
+      <p>不追求胜负，只感受速度带来的秩序感。对于喜欢数字跳动或规律变化的人来说，这是一种安静的陪伴。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要) -->
+  <div class="faq-mini">
+    <h2>常见说明</h2>
+    <div class="faq-item">
+      <strong>▸ 极速赛车是实时互动的吗？</strong>
+      <p>是的，页面内容会按照固定周期刷新，你看到的数据始终是最新的一轮结果，无需手动刷新浏览器。</p>
+    </div>
+    <div class="faq-item">
+      <strong>▸ 是否需要注册或下载？</strong>
+      <p>不需要。直接通过浏览器访问即可，没有额外安装步骤，界面适配手机与电脑屏幕。</p>
+    </div>
+    <div class="faq-item">
+      <strong>▸ 适合什么样的用户？</strong>
+      <p>适合对速度类数字互动有兴趣、希望以轻松心态观看或参与的人。保持理性，量力而行。</p>
+    </div>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="footer-note">
+    本文介绍基于真实体验整理，内容克制且中立。如果你对“极速赛车”的具体设定或规则感兴趣，
+    可以直接访问 <a href="https://h5-jssc.com">极速赛车</a> 页面，那里有更完整的说明与界面。
+  </div>
+
+</div>
+</body>
+</html>
