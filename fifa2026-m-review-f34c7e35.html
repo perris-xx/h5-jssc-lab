@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯知识库 · 2026 指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f8fc;
+      color: #1a2b3c;
+      line-height: 1.6;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* 头部 / 卡片标识 */
+    .hero {
+      background: linear-gradient(145deg, #d2e9e6 0%, #b7d9d4 100%);
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(40, 90, 85, 0.08);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f3b3a;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #20605a;
+      border-left: 4px solid #39837c;
+      padding-left: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    /* 网格卡片布局 — 目录感 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem 1.3rem;
+      box-shadow: 0 4px 12px rgba(0, 30, 30, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+      border: 1px solid #dce9e7;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(50, 110, 105, 0.08);
+      border-color: #b2d3ce;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1d544f;
+      margin-bottom: 0.6rem;
+      border-bottom: 2px solid #c7e0db;
+      padding-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #1f3f3c;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      padding: 0.2rem 0;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #3c8e86;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e1f0ed;
+      color: #145550;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-top: 0.5rem;
+    }
+
+    /* 说明区 + 提示区 双栏 */
+    .info-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .info-box {
+      flex: 1 1 240px;
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: #f0f9f6;
+      border-radius: 20px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid #c7dbd6;
+    }
+
+    .info-box h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0a4540;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-box p, .info-box li {
+      font-size: 0.94rem;
+      color: #1d3d3a;
+    }
+
+    .info-box ul {
+      padding-left: 1.3rem;
+    }
+
+    .info-box li {
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-link {
+      background: #e6f3f0;
+      border-radius: 40px;
+      padding: 0.1rem 0.7rem;
+      color: #0b5c55;
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
+      border-bottom: 1px solid #74a8a1;
+      transition: background 0.2s;
+    }
+
+    .highlight-link:hover {
+      background: #c5dfd9;
+    }
+
+    /* 相关信息区 (FAQ 摘要风格) */
+    .related-section {
+      margin-top: 2.2rem;
+      background: white;
+      border-radius: 26px;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid #dae6e2;
+      box-shadow: 0 2px 10px rgba(0, 30, 20, 0.02);
+    }
+
+    .related-section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #124e48;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2efeb;
+      padding: 0.9rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #1e5b55;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      color: #2f514c;
+      font-size: 0.93rem;
+    }
+
+    .faq-a a {
+      color: #1e766b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #a5cbc4;
+      font-weight: 500;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6a8b86;
+      border-top: 1px solid #d0e1dd;
+      padding-top: 1.5rem;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 600px) {
+      body {
+        padding: 14px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero {
+        padding: 1.5rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .info-panel {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .related-section {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- hero 区 -->
+    <header class="hero">
+      <h1>⚽ 2026 世界杯 · 知识库</h1>
+      <div class="sub">赛制 · 场馆 · 看点 · 历史脉络</div>
+      <p style="margin-top: 1.2rem; color: #1c514b; max-width: 85%;">
+        围绕 <strong>世界杯</strong> 整理的简明指南，从赛程架构到城市足迹，快速定位关键信息。
+      </p>
+    </header>
+
+    <!-- 网格卡片 — 目录入口感 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>📋 赛制框架</h3>
+        <p>48 支球队，12 组 · 新增 1/16 决赛</p>
+        <ul>
+          <li>小组赛 3 轮</li>
+          <li>淘汰赛 5 轮</li>
+          <li>冠军赛 7 月 19 日</li>
+        </ul>
+        <span class="tag">FIFA 2026</span>
+      </div>
+      <div class="card">
+        <h3>🏟️ 主办城市</h3>
+        <p>美国、加拿大、墨西哥 · 16 座场馆</p>
+        <ul>
+          <li>纽约 / 新泽西</li>
+          <li>洛杉矶 · 墨西哥城</li>
+          <li>温哥华 · 多伦多</li>
+        </ul>
+        <span class="tag">跨洲举办</span>
+      </div>
+      <div class="card">
+        <h3>📅 日程节点</h3>
+        <p>2026.6.11 – 7.19 · 39 天</p>
+        <ul>
+          <li>小组赛：6.11–6.27</li>
+          <li>淘汰赛：6.29–7.19</li>
+          <li>决赛：大都会体育场</li>
+        </ul>
+        <span class="tag">104 场</span>
+      </div>
+      <div class="card">
+        <h3>🏆 历史数据</h3>
+        <p>往届冠军 · 纪录 · 经典战役</p>
+        <ul>
+          <li>五星巴西 · 四星德国</li>
+          <li>梅西 2022 封神</li>
+          <li>方丹 13 球纪录</li>
+        </ul>
+        <span class="tag">1930–2022</span>
+      </div>
+    </div>
+
+    <!-- 说明区 + 提示区 (双栏) -->
+    <div class="info-panel">
+      <div class="info-box">
+        <h4>📖 说明</h4>
+        <p>此页面围绕 <strong>世界杯</strong> 2026 搭建轻量知识入口。所有赛程、场馆及规则以国际足联最终公布为准。如需完整赛历、分组抽签进程及官方公告，可移步 <a href="https://fifa2026-m.com" class="highlight-link">世界杯</a> 专题站获取最新消息。</p>
+        <p style="margin-top: 0.6rem;">内容基于公开资料整理，意在提供结构化概览，而非替代官方渠道。</p>
+      </div>
+      <div class="info-box">
+        <h4>💡 提示</h4>
+        <ul>
+          <li>2026 年世界杯将首次由 3 个国家联合主办</li>
+          <li>比赛场地分布广泛，跨时区观赛注意时间换算</li>
+          <li>部分场馆为 NFL / 大学体育场改造，容量差异明显</li>
+          <li>门票销售阶段可关注官方通知，谨防非正规渠道</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 -->
+    <section class="related-section">
+      <h2>❓ 世界杯 · 常见摘要</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">2026 年世界杯扩军后怎么分组？</div>
+        <div class="faq-a">48 队分为 12 组，每组 4 队；小组前两名及 8 个成绩最好的小组第三晋级 32 强（1/16 决赛）。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">在哪可以跟踪实时积分与对阵？</div>
+        <div class="faq-a">推荐关注 <a href="https://fifa2026-m.com">世界杯</a> 专属信息页，赛程、积分榜、新闻汇总相对集中。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">本届世界杯有什么特殊规则变化？</div>
+        <div class="faq-a">除扩军外，补时规则、换人名额与 2022 年基本一致；VAR 持续使用，半自动越位技术预计引入。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">是否有中文官方 app 或指南？</div>
+        <div class="faq-a">国际足联通常提供多语言版官网及赛事指南，第三方平台如 <a href="https://fifa2026-m.com">世界杯</a> 站点也整理便民信息。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">如何辨别可靠的赛事资讯？</div>
+        <div class="faq-a">以 FIFA 官网及授权媒体为准；查阅汇总站点时注意数据更新日期与来源标注。</div>
+      </div>
+    </section>
+
+    <!-- 底部简注 -->
+    <div class="footnote">
+      <span>⚡ 资料整理 · 2026 世界杯知识库 &nbsp;|&nbsp; 内容供参考，请以官方发布为准</span>
+    </div>
+  </div>
+</body>
+</html>
