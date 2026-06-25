@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于世界杯 · 一处安静的角落</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce4b8 0%, #f8d5a3 35%, #f0c48d 70%, #e7b57a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2d241a;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25),
+                        0 8px 16px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
+        }
+
+        @media (max-width: 540px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 32px 32px 24px 24px;
+            }
+        }
+
+        /* 文章风格 */
+        .article-title {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #3e2a1b;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+            border-left: 6px solid #dba36a;
+            padding-left: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #7a5f44;
+            margin-top: 0.1rem;
+            margin-bottom: 2.2rem;
+            padding-left: 1.8rem;
+            font-style: italic;
+            border-bottom: 1px dashed #e7cfb5;
+            padding-bottom: 0.8rem;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: #3d2c1d;
+            background: #f7ede1;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .paragraph {
+            margin-bottom: 1.6rem;
+            text-indent: 2em;
+            color: #3b2d21;
+        }
+
+        .paragraph:first-of-type {
+            margin-top: 0.8rem;
+        }
+
+        .pull-quote {
+            background: #f5e6d6;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0 1.8rem 0;
+            border-radius: 30px 12px 30px 12px;
+            font-size: 1.1rem;
+            color: #4f3826;
+            border-left: 4px solid #c89565;
+            box-shadow: 0 4px 12px rgba(160, 100, 50, 0.06);
+            font-style: normal;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: "“";
+            font-size: 3.2rem;
+            line-height: 1;
+            color: #c89565;
+            position: absolute;
+            left: 0.6rem;
+            top: -0.2rem;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .reference-line {
+            display: block;
+            text-align: right;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #7d5d40;
+        }
+
+        .visit-sentence {
+            background: #e9d8c2;
+            padding: 1.2rem 1.8rem;
+            border-radius: 60px;
+            margin: 2.2rem 0 1.8rem 0;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #dbbc9b;
+        }
+
+        .visit-sentence a {
+            color: #6f4c2e;
+            background: #f9efe4;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            display: inline-block;
+            margin: 0 0.2rem;
+        }
+
+        .visit-sentence a:hover {
+            background: #dba36a;
+            color: #fcf7f0;
+            border-color: #b87a48;
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(170, 100, 40, 0.2);
+        }
+
+        .faq-mini {
+            margin-top: 2.6rem;
+            padding-top: 1.6rem;
+            border-top: 2px dotted #dcc6b0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #4b3523;
+            display: block;
+            margin-bottom: 0.15rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-a {
+            color: #5a4331;
+            padding-left: 1.2rem;
+            border-left: 3px solid #dba36a;
+            padding-left: 1rem;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #e4cfb8, transparent);
+            margin: 2rem 0 0.8rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8c7056;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="article-title">当足球超越竞赛</h1>
+        <div class="subhead">—— 世界杯作为文化联结的平淡叙事</div>
+
+        <p class="lead">
+            四年一度，世界重新被同一颗球牵引。无关输赢，只关乎那些交织的目光与共同的记忆。
+        </p>
+
+        <p class="paragraph">
+            世界杯从来不只是奖杯的流转。它像一面温和的镜子，映出不同地域的人们如何用同一套规则表达各自的生活节奏。从南美的街头涂鸦到北非集市里的投影幕布，从亚洲的观赛夜市到欧洲老城广场的露天屏幕，足球的轨迹串联起无数个具体而微的日常。这些画面没有解说词，却构成了一部流动的人文长卷。
+        </p>
+
+        <p class="paragraph">
+            很多人说，世界杯是四年一次的「世界时间」。在那几十天里，时差消失了，语言变得次要，陌生人可以因为一个进球而击掌。这种联结并非宏大叙事，它更接近于一种朴素的共情——你在屏幕上看到的，是另一群人也正在经历的。而当你把视线从比赛移开，会发现身边的朋友、同事甚至家人，也正和你共享着同一份期待或遗憾。
+        </p>
+
+        <div class="pull-quote">
+            不是每一场比赛都需要被记住，但那种所有人同时望向一个方向的感觉，本身就是一种安静的节日。
+            <span class="reference-line">—— 摘自某次赛后的闲聊</span>
+        </div>
+
+        <p class="paragraph">
+            2026年的夏天，北美将再次成为这片绿色舞台的东道主。三个国家、多个城市，组合出一种分散而辽阔的赛事版图。这或许会让观赛方式变得更个人化——你可以在沙漠边缘的露天酒吧看一场，也可以在枫叶下的社区中心看另一场。世界杯不再被局限在体育场之内，它渗入到街角、公园、甚至家庭客厅的沙发上。
+        </p>
+
+        <p class="paragraph">
+            对于很多不常看足球的人来说，世界杯提供了一种「偶遇」的契机：你偶然点开一场比赛，偶然发现某个球员的奔跑姿势很特别，偶然记住了某个国家的助威歌。这些偶然，往往是日后回忆里最柔软的部分。没有压力的观看，反而更能触达足球本身的魅力——一群人追逐一个目标，简单，却动人。
+        </p>
+
+        <div class="visit-sentence">
+            如果你想了解更多关于这届赛事的信息，可以访问 <a href="https://fifa2026-site.com">世界杯</a> 相关页面，那里有更完整的赛程与文化背景介绍。
+        </div>
+
+        <p class="paragraph">
+            说到底，世界杯的意义不在于竞技本身，而在于它让全世界同时拥有了一段共同的「闲暇」。在这段闲暇里，我们暂时放下分歧，专注于同一颗滚动的球。这种专注，或许比任何奖杯都更珍贵。
+        </p>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <div class="faq-item">
+                <span class="faq-q">❓ 2026年世界杯在哪里举办？</span>
+                <div class="faq-a">美国、加拿大、墨西哥联合主办，共计16座城市，是赛事首次由三个国家共同承办。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">❓ 赛事时间大概在什么时候？</span>
+                <div class="faq-a">预计为2026年6月至7月，具体日程以官方公布为准。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">❓ 如何获取最准确的信息？</span>
+                <div class="faq-a">可以直接浏览 <a href="https://fifa2026-site.com" style="color:#6f4c2e; text-decoration:underline; background:transparent; padding:0; border:none; display:inline; font-weight:500;">世界杯</a> 官方网站，以最新公告为准。</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer-note">
+            一篇安静的随笔 · 献给所有曾在屏幕前为远方欢呼的人
+        </div>
+    </div>
+</body>
+</html>
